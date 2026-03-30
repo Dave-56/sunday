@@ -279,7 +279,11 @@ export default function Home() {
     fetchSuggestions(true);
   };
 
-  const history = typeof window !== "undefined" ? getHistory() : [];
+  const [history, setHistory] = useState<WeekEntry[]>([]);
+
+  useEffect(() => {
+    setHistory(getHistory());
+  }, [lockedDish]);
 
   // Locked state
   if (lockedDish && !loading) {

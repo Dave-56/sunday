@@ -13,7 +13,7 @@ const config = [
   {
     ignores: [".next/**", "node_modules/**"],
   },
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends("next/core-web-vitals"),
 ];
 
 export default config;
