@@ -25,14 +25,6 @@ function RecipeContent() {
   useEffect(() => {
     if (!dish) return;
 
-    const cacheKey = `recipe_image_${dish.name.toLowerCase()}_${dish.cuisine.toLowerCase()}`;
-    const cached = sessionStorage.getItem(cacheKey);
-    if (cached) {
-      setImageSrc(cached);
-      setImageError(null);
-      return;
-    }
-
     const controller = new AbortController();
     const loadImage = async () => {
       setImageLoading(true);
@@ -62,7 +54,6 @@ function RecipeContent() {
           throw new Error("No image was returned for this recipe.");
         }
 
-        sessionStorage.setItem(cacheKey, src);
         setImageSrc(src);
       } catch (error) {
         if (controller.signal.aborted) return;

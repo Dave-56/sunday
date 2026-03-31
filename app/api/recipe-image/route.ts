@@ -4,10 +4,10 @@ import { checkRateLimit } from "@/lib/rate-limit";
 const OPENAI_IMAGE_ENDPOINT = "https://api.openai.com/v1/images/generations";
 const MAX_FIELD_LENGTH = 120;
 const IMAGE_RATE_LIMIT_PER_MINUTE = 6;
-const IMAGE_REQUEST_TIMEOUT_MS = 45_000;
+const IMAGE_REQUEST_TIMEOUT_MS = 120_000;
 
 // Allow enough runtime on Vercel for slower image generations.
-export const maxDuration = 60;
+export const maxDuration = 150;
 
 function cleanInput(value: unknown): string {
   if (typeof value !== "string") return "";

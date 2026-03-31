@@ -193,7 +193,7 @@ export default function Home() {
     setSelectedIndex(null);
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    const timeoutId = setTimeout(() => controller.abort(), 35_000);
 
     try {
       const res = await fetch("/api/suggest", {
